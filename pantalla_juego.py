@@ -82,7 +82,7 @@ def jugar(tiempo_por_pregunta, cantidad_de_puntos_facil, cantidad_de_puntos_inte
                                 puntos += cantidad_de_puntos_dificil
                         else:
                             vidas -= 1
-                        actualizar_estadisticas_globales(preguntas[pregunta_actual]["pregunta"], puntos)
+                        actualizar_estadisticas_globales(preguntas[pregunta_actual]["pregunta"], True)
                         
                         pregunta_actual += 1  # Ir a la siguiente pregunta
                         tiempo_restante = tiempo_por_pregunta * 1000 # Reiniciar el tiempo para la nueva pregunta
