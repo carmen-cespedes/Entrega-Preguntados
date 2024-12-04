@@ -102,12 +102,12 @@ def jugar(tiempo_por_pregunta, cantidad_de_puntos_facil, cantidad_de_puntos_inte
             pregunta_actual += 1
             tiempo_restante = tiempo_por_pregunta * 1000 # Reiniciar el tiempo
             
-            if vidas == 0:
-                tiempo_total = (pygame.time.get_ticks() - tiempo_inicio)  // 1000
-                mostrar_mensaje_fin(nombre_jugador, puntos, vidas, tiempo_total)
-                return guardar_partida(nombre_jugador, puntos, vidas, tiempo_total)
+        if vidas == 0:
+            tiempo_total = (pygame.time.get_ticks() - tiempo_inicio)  // 1000
+            mostrar_mensaje_fin(nombre_jugador, puntos, vidas, tiempo_total)
+            return guardar_partida(nombre_jugador, puntos, vidas, tiempo_total)
 
-            actualizar_estadisticas_globales(preguntas[pregunta_actual]["pregunta"], False)
+        actualizar_estadisticas_globales(preguntas[pregunta_actual]["pregunta"], False)
             
             # Verificar si hemos llegado a la última pregunta
         if pregunta_actual >= len(preguntas):
