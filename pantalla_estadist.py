@@ -6,10 +6,11 @@ from fuentes import *
 from constantes import *
 from estadisticas import *
 
-porcentaje = leer_archivo("estadisticas_globales.csv", "porcentaje_aciertos", "Porcentaje de Aciertos")
-fallos = leer_archivo("estadisticas_globales.csv", "porcentaje_aciertos", "Fallos")
-veces_preguntadas = leer_archivo("estadisticas_globales.csv", "porcentaje_aciertos", "Veces Preguntada")
-aciertos = leer_archivo("estadisticas_globales.csv", "porcentaje_aciertos", "Aciertos")
+porcentaje = leer_archivo("estadisticas_globales.csv", "Pregunta", "Porcentaje de Aciertos")
+fallos = leer_archivo("estadisticas_globales.csv", "Pregunta", "Fallos")
+veces_preguntadas = leer_archivo("estadisticas_globales.csv", "Pregunta", "Veces Preguntada")
+aciertos = leer_archivo("estadisticas_globales.csv", "Pregunta", "Aciertos")
+
 
 def pantalla_estadisticas():
     """
