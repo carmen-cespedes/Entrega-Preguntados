@@ -20,39 +20,21 @@ espaciado = 50
 # Fuente para mostrar texto
 fuente = pygame.font.Font(None, 36)
 
-# def leer_archivo(nombre_archivo: str, nombre : str, nombre_columna):
-#     """
-#     ¿Que hace? : Lee el archivo CSV y devuelve una lista 
-#     ¿Que recibe? : 
-#     - nombre_archivo : (str) nombre del archivo csv
-#     ¿Que devuelve? : (list) Una lista de listas
-#     """
-#     lista_porcentaje_aciertos = []
 
-#     with open(nombre_archivo, newline='') as archivo:
-#         reader = csv.DictReader(nombre_archivo)  # Utilizamos DictReader para leer encabezados
-#         for fila in reader:
-#             pregunta = fila["Pregunta"]
-#             nombre= float(fila[nombre_columna])
-#         lista_porcentaje_aciertos.append([pregunta, nombre])
-#     return lista_porcentaje_aciertos
-
-import csv
-
-def leer_archivo(nombre_archivo, clave, columna_a_extraer):
+def leer_archivo(nombre_archivo: str, columna_clave: str, columna_valor: str):
     """
     Lee un archivo CSV y retorna los valores de una columna específica según una clave.
     """
+    lista_datos = []
 
     with open(nombre_archivo, mode='r', encoding='utf-8') as archivo:
         reader = csv.DictReader(archivo)
-        print("Encabezados detectados:", reader.fieldnames)  # Para verificar encabezados
         for fila in reader:
-            if clave in fila:  # Confirma que la clave existe en la fila
-                return fila[columna_a_extraer]
-            # else:
-            #     raise KeyError(f"Clave '{clave}' no encontrada en los encabezados: {reader.fieldnames}")
-
+            if columna_clave in fila and columna_valor in fila:
+                clave = fila[columna_clave]
+                valor = fila[columna_valor]
+                lista_datos.append([clave, valor])  # Almacena la clave y el valor
+    return lista_datos
 
 
 
